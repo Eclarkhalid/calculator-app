@@ -1,6 +1,6 @@
 const Display = ({value}) => {
   return <>
-  <div className="col-span-4 bg-gray-800 text-white text-right py-6 px-10 rounded">
+  <div className="col-span-4 w-full bg-gray-800 text-white text-right py-6 px-10 rounded">
     {value}
   </div>
   </>;
