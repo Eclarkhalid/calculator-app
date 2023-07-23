@@ -23,7 +23,7 @@ const Calculator = () => {
         if (firstOperand === null) {
           setFirstOperand(parseFloat(display).toString());
         } else if (currentOperation) {
-          setFirstOperand(performCalculation());
+          setFirstOperand(performCalculation().toString());
         }
         setCurrentOperation(value);
         setDisplay((prev) => prev + value);
