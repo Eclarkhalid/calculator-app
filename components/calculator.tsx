@@ -21,7 +21,7 @@ const Calculator = () => {
       case "*":
       case "/":
         if (firstOperand === null) {
-          setFirstOperand(parseFloat(display));
+          setFirstOperand(parseFloat(display).toString());
         } else if (currentOperation) {
           setFirstOperand(performCalculation());
         }
