@@ -30,7 +30,7 @@ const Calculator = () => {
           setDisplay(result.toString());
         }
         break;
-      case "C":
+      case "Clear":
         setDisplay("");
         setFirstOperand(null);
         setCurrentOperation(null);
@@ -74,7 +74,7 @@ const Calculator = () => {
   
 
 
-  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+", "C"];
+  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+", "Clear"];
 
   return (
     <div className="p-10 grid grid-cols-4 gap-4 max-w-lg">
