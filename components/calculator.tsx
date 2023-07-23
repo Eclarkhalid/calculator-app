@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react";
 import Display from "./display";
 import Button from "./button";
@@ -7,7 +5,7 @@ import { add, substract, multiply, divide } from "@/utils/utils";
 
 const Calculator = () => {
   const [display, setDisplay] = useState("");
-  const [firstOperand, setFirstOperand] = useState<number | null>(null); 
+  const [firstOperand, setFirstOperand] = useState<number | null>(null);
   const [currentOperation, setCurrentOperation] = useState<string | null>(null);
 
   const handleClick = (value: string) => {
@@ -25,7 +23,7 @@ const Calculator = () => {
         setDisplay(display + value);
         break;
       case "=":
-        if (firstOperand!== null && currentOperation) {
+        if (firstOperand !== null && currentOperation) {
           const result = performCalculation();
           setFirstOperand(null);
           setCurrentOperation(null);
@@ -44,6 +42,10 @@ const Calculator = () => {
   };
 
   const performCalculation = () => {
+    if (firstOperand === null) {
+      return 0; // or return any other appropriate value when firstOperand is null
+    }
+
     const secondOperandStartIndex = firstOperand.toString().length + 1;
     const secondOperand = parseFloat(display.slice(secondOperandStartIndex));
 
@@ -51,7 +53,7 @@ const Calculator = () => {
       case "+":
         return add(parseFloat(firstOperand), secondOperand);
       case "-":
-        return substract(parseFloat(firstOperand), secondOperand);
+        return subtract(parseFloat(firstOperand), secondOperand);
       case "*":
         return multiply(parseFloat(firstOperand), secondOperand);
       case "/":
@@ -64,9 +66,10 @@ const Calculator = () => {
       default:
         return 0;
     }
-  }
+  };
 
-  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"];
+
+  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+", "C"];
 
   return (
     <div className="p-10 grid grid-cols-4 gap-4 max-w-lg">
