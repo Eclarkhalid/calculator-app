@@ -13,7 +13,6 @@ const Calculator = () => {
 
 
 
-
   const handleClick = (value: string) => {
     switch (value) {
       case "+":
@@ -21,12 +20,12 @@ const Calculator = () => {
       case "*":
       case "/":
         if (firstOperand === null) {
-          setFirstOperand(parseFloat(display).toString());
+          setFirstOperand(parseFloat(display));
         } else if (currentOperation) {
-          setFirstOperand(performCalculation().toString());
+          setFirstOperand(performCalculation());
         }
         setCurrentOperation(value);
-        setDisplay((prev) => prev + value);
+        setDisplay(display + value);
         break;
       case "=":
         if (firstOperand !== null && currentOperation) {
@@ -36,15 +35,13 @@ const Calculator = () => {
           setDisplay(result.toString());
         }
         break;
-
       case "C":
         setDisplay("");
         setFirstOperand(null);
         setCurrentOperation(null);
         break;
-
       default:
-        setDisplay((prev) => prev + value);
+        setDisplay(display + value);
         break;
     }
   };
