@@ -61,7 +61,7 @@ const Calculator = () => {
           return divide(firstOperand.toString(), secondOperand.toString());
         } catch (e) {
           if (e && typeof e === "object" && e.hasOwnProperty("message")) {
-            setDisplay(e.message);
+            setDisplay((e as Error).message); // Type assertion here
           } else {
             setDisplay("An error occurred");
           }
