@@ -12,6 +12,9 @@ export default function Home() {
   <div className="flex items-center justify-center ">
     <Calculator />
   </div>
+  <h1 className="flex justify-center items-center font-medium gap-5 p-5 text-white text-center">
+      &copy; 2023
+    </h1>
   </div>
   </>;
 }

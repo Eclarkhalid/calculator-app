@@ -6,13 +6,9 @@ import Button from "./button";
 import { add, substract, multiply, divide } from "@/utils/utils";
 
 const Calculator = () => {
-  const [display, setDisplay] = useState('0');
-  
+  const [display, setDisplay] = useState("");
   const [firstOperand, setFirstOperand] = useState<number | null>(null); 
   const [currentOperation, setCurrentOperation] = useState<string | null>(null);
-
-
-
 
   const handleClick = (value: string) => {
     switch (value) {
@@ -29,7 +25,7 @@ const Calculator = () => {
         setDisplay(display + value);
         break;
       case "=":
-        if (firstOperand !== null && currentOperation) {
+        if (firstOperand!== null && currentOperation) {
           const result = performCalculation();
           setFirstOperand(null);
           setCurrentOperation(null);
@@ -63,24 +59,23 @@ const Calculator = () => {
           return divide(parseFloat(firstOperand), secondOperand);
         } catch (e) {
           setDisplay(e.message);
-
+          return 0;
         }
-        break;
       default:
-        break;
+        return 0;
     }
   }
-  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+", "C"];
-  return <>
+
+  const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"];
+
+  return (
     <div className="p-10 grid grid-cols-4 gap-4 max-w-lg">
       <Display value={display} />
-      {
-        buttons.map((button, index) => (
-          <Button key={index} value={button} onClick={() => handleClick(button)} />
-        ))
-      }
+      {buttons.map((button, index) => (
+        <Button key={index} value={button} onClick={() => handleClick(button)} />
+      ))}
     </div>
-  </>
-}
+  );
+};
 
 export default Calculator;
