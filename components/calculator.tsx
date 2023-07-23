@@ -60,7 +60,7 @@ const Calculator = () => {
         try {
           return divide(firstOperand.toString(), secondOperand.toString());
         } catch (e) {
-          if (typeof e === "object" && e.hasOwnProperty("message")) {
+          if (e && typeof e === "object" && e.hasOwnProperty("message")) {
             setDisplay(e.message);
           } else {
             setDisplay("An error occurred");
