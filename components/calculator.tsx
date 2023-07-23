@@ -6,10 +6,11 @@ import Button from "./button";
 import { add, substract, multiply, divide } from "@/utils/utils";
 
 const Calculator = () => {
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState('0');
+  
+  const [firstOperand, setFirstOperand] = useState<number | null>(null); 
+  const [currentOperation, setCurrentOperation] = useState<string | null>(null);
 
-  const [firstOperand, setFirstOperand] = useState(null);
-  const [currentOperation, setCurrentOperation] = useState(null);
 
 
 
