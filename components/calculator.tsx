@@ -53,7 +53,7 @@ const Calculator = () => {
       case "+":
         return add(parseFloat(firstOperand), secondOperand);
       case "-":
-        return subtract(parseFloat(firstOperand), secondOperand);
+        return substract(parseFloat(firstOperand), secondOperand);
       case "*":
         return multiply(parseFloat(firstOperand), secondOperand);
       case "/":
