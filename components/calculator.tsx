@@ -45,20 +45,20 @@ const Calculator = () => {
     if (firstOperand === null) {
       return 0; // or return any other appropriate value when firstOperand is null
     }
-
+  
     const secondOperandStartIndex = firstOperand.toString().length + 1;
     const secondOperand = parseFloat(display.slice(secondOperandStartIndex));
-
+  
     switch (currentOperation) {
       case "+":
-        return add(parseFloat(firstOperand), secondOperand);
+        return add(firstOperand.toString(), secondOperand.toString());
       case "-":
-        return substract(parseFloat(firstOperand), secondOperand);
+        return substract(firstOperand.toString(), secondOperand.toString());
       case "*":
-        return multiply(parseFloat(firstOperand), secondOperand);
+        return multiply(firstOperand.toString(), secondOperand.toString());
       case "/":
         try {
-          return divide(parseFloat(firstOperand), secondOperand);
+          return divide(firstOperand.toString(), secondOperand.toString());
         } catch (e) {
           setDisplay(e.message);
           return 0;
@@ -67,6 +67,7 @@ const Calculator = () => {
         return 0;
     }
   };
+  
 
 
   const buttons = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+", "C"];
